@@ -1,6 +1,6 @@
 # 📄 Resume Screening Workflow 
 
-This workflow automates fetching resumes from **Google Drive**, analyzing them with **Google Gemini** and **ChatGPT 4o**, and recording the results in **Google Sheets**. It is specifically designed for screening **AI Engineer** candidates based on a strict HR scoring rubric.
+This workflow automatically retrieves resumes from Google Drive, analyzes them using Google Gemini and ChatGPT 4o, and stores structured evaluation results in Google Sheets. It is designed for screening AI Engineer applicants using a strict, business-aligned technical rubric.
 
 <br>
 
@@ -52,11 +52,13 @@ The workflow executes the following automated steps:
      - Grammar, design, or authenticity issues.
      - Illogical or invalid claims.
      - Incomplete educational qualifications.
+     - Github got less than 4 reposiotory
+     - Projects are not relevant with the job perceptive 
 
-5. **✅ Validate JSON Output**:
+5. ** Validate JSON Output**:
    - Uses a `Switch` + `Code` node to ensure Gemini's output is **valid JSON** and cleans the response if necessary.
 
-6. **📊 Append Results to Google Sheets**:
+6. ** Append Results to Google Sheets**:
    - Writes the structured data into a Google Sheet with the following columns: `Name`, `Email`, `University Name`, `University Completed`, `Years of Experience`, `Score`, `Reason`, and `File Name`.
 
 7. **🔄 Loop & Retry Mechanisms**:
@@ -64,7 +66,7 @@ The workflow executes the following automated steps:
 
 -----
 
-## 🔑 Credentials Needed
+##  Credentials Needed
 
 - **Google Drive OAuth2** → To access resumes stored in your Drive.
 - **Google Sheets OAuth2** → To write candidate results into your Sheet.
@@ -110,12 +112,7 @@ This workflow is designed to be **strict and stingy with points**. Candidates ar
 - Their resume suffers from poor grammar or unprofessional design.
 - Their CV does not showcase correct types of project for the position.
 
------
 
-## 📌 Notes
-
-- Resumes indicating a graduation date **later than July 2025** will automatically lose **10 points**.
-- JSON parsing is strictly enforced to ensure **clean, structured output** every time.
 
 -----
 
